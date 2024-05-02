@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="birthYear" placeholder="Doğum Yılınızı girin">
+    <button onclick="buttonGetAge_Click()" id="buttonGetAge">Yaşımı Hesapla</button>
+    <button onclick="compare()">Eşitlik karşılaştır</button>
+    <br>
+    <span id="age"></span>
+
+    <fieldset>
+        <legend>
+            Yapılacak İşler
+        </legend>
+        <input type="text" placeholder="Yapılacak iş">
+        <button onclick="">Ekle</button>
+    </fieldset>
+
+
+    <script>
+        function buttonGetAge_Click() {
+            let currentYear = new Date().getFullYear();
+            let birthYear = document.getElementById('birthYear').value;
+            if (!isNaN(birthYear)) {
+                let age = currentYear - birthYear;
+                document.getElementById('age').innerText = `Yaşınız ${age}`;
+            }
+            else {
+                document.getElementById('age').innerText = 'Lütfen 4 haneden oluşan doğum yılınızı girin!'
+            }
+
+
+
+
+        }
+
+        function compare() {
+            let number = 5;
+            let str = '5';
+
+            if (number == str) {
+                console.log(`number == str sonucu eşittir ${number} == ${str}`);
+            }
+
+            if (str === '5') {
+                console.log(`number === str sonucu eşittir ${number} === ${str}`);
+
+            }
+            else {
+                console.log('iki ifade eşit değildir!');
+            }
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>
