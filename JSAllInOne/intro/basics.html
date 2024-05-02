@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .green{
+            color:green;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,8 +26,14 @@
         <legend>
             Yapılacak İşler
         </legend>
-        <input type="text" placeholder="Yapılacak iş">
-        <button onclick="">Ekle</button>
+        <input type="text" id="textTodo" placeholder="Yapılacak iş">
+        <button onclick="addTodoItem()">Ekle</button>
+        <br>
+        <span id="warning"></span>
+        <h5 id="title" class="red"> Şu anda <span id="count">0</span> Adet iş bekliyor </h5>
+        <ul id="todoList">
+
+        </ul>
     </fieldset>
 
 
@@ -37,6 +51,46 @@
 
 
 
+
+        }
+
+        var todoItems = [];
+
+        function addTodoItem(){
+            let inputElement = document.getElementById('textTodo')
+            let todoDescription = inputElement.value;
+            if (isNaN(todoDescription)) {
+                todoItems.push(todoDescription);                
+            }else{
+                document.getElementById('warning').innerText = 'Lütfen sadece sözel ifade girin';                
+            }
+
+            showItemsInList(todoItems);
+            changeHeader(todoItems.length);
+
+
+            inputElement.value = '';
+            inputElement.focus();
+
+        }
+
+        function showItemsInList(array){
+
+            let ul = document.getElementById('todoList');
+            ul.innerHTML = '';
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                let li = document.createElement('li');
+                li.innerText = element;
+                ul.append(li);
+                
+            }
+        }
+        
+       let changeHeader = number => {
+            let h5 = document.getElementById('title');
+            h5.classList.value = number % 2 == 0 ? 'red':'green';
+            document.getElementById('count').innerText = number;
 
         }
 
@@ -59,6 +113,29 @@
 
 
         }
+        
+        function getPowerTwo(number) {
+            return Math.pow(number,2);
+        }
+
+        let arrowForGetPowerTwo = num => Math.pow(num,2);
+        let getPower = (x,y)=> Math.pow(x,y);
+        let noParam = ()=>console.log('parametre yok!');
+        let multiline = isOk =>{
+            if (isOk) {
+                
+            }
+            else{
+
+            }
+
+        };
+
+        console.log(arrowForGetPowerTwo(5));
+        console.log(getPower(2,6));
+
+
+
     </script>
 
 </body>
