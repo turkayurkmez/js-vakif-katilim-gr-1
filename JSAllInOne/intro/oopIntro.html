@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="katilimcilar">
+        <thead id="tableHeader">
+
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <script src="oop.js"></script>
+    <script src="users.js"></script>
+    <script>
+        user.name = 'Türkay';
+        console.log(user.name);
+        //console.log(user);
+        console.log(user.getFullName());
+
+        for (let prop in user) {
+            //console.log(prop, user[prop]);
+
+        }
+
+        window.onload = function () {
+            createHeader();
+            createBody();
+            //console.log(participants);
+        }
+        function createHeader() {
+            let tr = document.createElement('tr');
+            for (const key in participants[0]) {
+                let th = document.createElement('th');
+                th.innerText = key;
+                tr.appendChild(th);
+            }
+
+            document.getElementById('tableHeader').append(tr);
+
+        }
+
+        function createBody(){
+            for (let index = 0; index < participants.length; index++) {
+                const participant = participants[index];
+                let tr = document.createElement('tr');
+                for (const key in participant) {                  
+                        const value = participant[key];
+                        let td = document.createElement('td');
+                        td.innerText = value;       
+                        tr.appendChild(td);               
+                    
+                }
+                document.getElementById('tableBody').appendChild(tr);
+
+                
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

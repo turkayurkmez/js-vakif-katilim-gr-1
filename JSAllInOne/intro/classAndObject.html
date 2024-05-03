@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Ürün Ekleme</legend>
+        <input type="text" name="" id="pName"><br>
+        <input type="number" name="" id="pPrice"><br>
+        <button onclick="addProduct()">Ekle</button>
+    </fieldset>
+    <script src="classAnsObject.js"></script>
+    <script>        
+        let urun = new Product('Şapka', 150)
+        // urun.name = 'Güneş Gözlüğü'
+        // urun.price = 500;
+        urun.increasePrice(0.20);
+        console.log(urun.name, urun.price);
+
+        let urun2 = new Product('Tişört',100);
+        let urun3 = new Product('Sandalet',250);
+
+        let products = [];
+        function addProduct(){
+            let name = document.getElementById('pName').value;
+            let price = document.getElementById('pPrice').value;
+
+            let newProduct = new Product(name,price);
+            products.push(newProduct);
+
+            showCollection();
+
+
+        }
+
+        function showCollection(){
+            console.log(products);
+        }
+
+
+    
+    </script>
+</body>
+</html>
